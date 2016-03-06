@@ -1,4 +1,4 @@
-name 'learn_chef_redis'
+name 'cooking'
 maintainer 'The Authors'
 maintainer_email 'yrros@hotmail.com'
 license 'all_rights'

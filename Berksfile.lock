@@ -1,7 +1,7 @@
 DEPENDENCIES
-  learn_chef_redis
+  cooking
     path: .
     metadata: true
 
 GRAPH
-  learn_chef_redis (0.1.0)
+  cooking (0.1.0)
