@@ -12,5 +12,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[learn_chef_redis::default]
+      - recipe[::default]
     attributes:

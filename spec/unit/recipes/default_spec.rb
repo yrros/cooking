@@ -1,20 +1,18 @@
 #
-# Cookbook Name:: learn_chef_redis
+# Cookbook Name::
 # Spec:: default
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-require 'spec_helper'
+require 'chefspec'
 
-describe 'learn_chef_redis::default' do
-  context 'When all attributes are default, on an unspecified platform' do
-    let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new
-      runner.converge(described_recipe)
-    end
+describe 'cooking::default' do
+let(:chef_run) {
+   ChefSpec::Runner.new.converge(described_recipe)
+}
 
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
-  end
+# test that it creates a file /tmp/motd
+it 'creates a file' do
+chef_run = ChefSpec::Runner.new.converge(described_recipe)
+expect(chef_run).to create_file('/tmp/motd')
 end

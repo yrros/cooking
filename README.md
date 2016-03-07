@@ -1,5 +1,5 @@
-# learn_chef_redis
+# cooking
 
-TODO: Enter the cookbook description here.
+We're cooking up some Redis in this cookbook.
 
 # cooking
