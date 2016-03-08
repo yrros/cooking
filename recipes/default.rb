@@ -21,6 +21,11 @@ end
 # Install PHP
 
 # Install Apache
+package 'apache2'
+service 'apache2' do
+    supports :status => true
+    action [:enable, :start]
+end
 
 # configure the Firewall
 # going to use the ufw community cookbook for this
