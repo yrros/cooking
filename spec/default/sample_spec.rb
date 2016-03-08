@@ -18,6 +18,6 @@ describe service('redis-server'), :if => os[:family] == 'ubuntu' do
   it { should be_running }
 end
 
-describe port(80) do
+describe port(6379) do
   it { should be_listening }
 end

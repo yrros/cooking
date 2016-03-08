@@ -12,24 +12,16 @@ service 'redis-server' do
     action [:enable, :start]
 end
 
-# Write a temp file
+# Write a temp file for unit testing fun
+motd = node.default['cooking']['motd-message']
+#motd = "hello mum"
 file '/tmp/motd' do
-  content 'hello world - testing TDD'
+  content motd
 end
+
 #Put some data in Redis to test with
-
-# Install PHP
-
-# Install Apache
-package 'apache2'
-service 'apache2' do
-    supports :status => true
-    action [:enable, :start]
-end
+# import a script file which puts data into redis from a resource
 
 # configure the Firewall
-# going to use the ufw community cookbook for this
-
-# Pull the Page index.html to be the homepage
-
-# Test the response on the webpage matches the desired input "IT WORKS"
+# going to use the Firewall community cookbook for this (from inside my file firewall.rb)
+include_recipe 'cooking::firewall'

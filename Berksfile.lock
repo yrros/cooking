@@ -5,3 +5,7 @@ DEPENDENCIES
 
 GRAPH
   cooking (0.1.0)
+    firewall (< 2.0.0)
+  firewall (1.6.2)
+    poise (~> 1.0)
+  poise (1.0.12)
