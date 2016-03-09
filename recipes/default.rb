@@ -12,15 +12,25 @@ service 'redis-server' do
     action [:enable, :start]
 end
 
-# Write a temp file for unit testing fun
-motd = node.default['cooking']['motd-message']
-#motd = "hello mum"
-file '/tmp/motd' do
-  content motd
+#copy the Redis data file to the server
+template '/tmp/data.txt' do
+  source 'KVs.red.erb'
 end
 
 #Put some data in Redis to test with
 # import a script file which puts data into redis from a resource
+bash 'install_something' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  echo testdata > testdata.txt
+  cat data.txt | nc localhost 6379 > /dev/null
+  EOH
+end
+
+
+#Get data from Redis and put into file /tmp/out_data.txt
+
 
 # configure the Firewall
 # going to use the Firewall community cookbook for this (from inside my file firewall.rb)
